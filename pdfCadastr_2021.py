@@ -1,13 +1,12 @@
 #!/home/investigator/anaconda3/envs/bots_chat/bin/python
-#! /home/oleg/envPy/bStf-env/bin/python3
 # pdfCadastr.py - open pdf of landing plot and then export data to xlsx files.
 import pdfx, os, re
 import json
 from pathlib import Path
 import datetime
-import time
 import csv
 import requests
+
 
 
 
@@ -24,7 +23,7 @@ def emit_row(output_file, row): #get data to csv
             writer.writeheader()
             writer.writerow(row)
 
-def parsePdf(OUTPUT_FILE, OUTPUT_FILE_2, pdfFiles, regexStrings, PATH):
+def parsePdf(OUTPUT_FILE, OUTPUT_FILE_2, pdfFiles, regexStrings, PATH, region):
     relation = {}
     for filename in range(len(pdfFiles)):
         print(f'Working with...%s' % pdfFiles[filename])
@@ -40,7 +39,10 @@ def parsePdf(OUTPUT_FILE, OUTPUT_FILE_2, pdfFiles, regexStrings, PATH):
                 stringStripN = regexVar.group(regexStrings[i][2]).strip('\n') #removing paragraphs
                 replaceS = stringStripN.replace('\n', ' ') #replacing remaining paragraphs with spaces
                 print(replaceS)
-                relation[regexStrings[i][0]] = replaceS
+                if regexStrings[i] == regexStrings[2]: #if parsing place adding region string to place, if not skip this
+                    relation[regexStrings[i][0]] = region + ' ' + replaceS
+                else:
+                    relation[regexStrings[i][0]] = replaceS
                 if i == 4: #go to check owner in declarations
                     if relation['name_owner']:
                         declarationCheck(relation['name_owner'], OUTPUT_FILE_2)
@@ -81,9 +83,9 @@ def main(directory, region):
 
     regexStrings = [["number", "(\d{10}:\d{2}:\d{3}:\d{4})", 0],  # parse number of plot
                     # ["area", "(Площа.*ділянки.*Місце розташування)(.*)(\n\d[\.]?\d*\n)(Волинська)", 3],
-                    ["area", f"(Площа.*ділянки.*Місце розташування)(.*)(\n\d[\.]?\d*\n)({region})", 3],
+                    ["area", f"(Площа.*ділянки.*Місце розташування)(.*)(\n\d+[\.]?\d*\n)({region})", 3],
                     # ["place", "(Волинська.{1,90}рад[и|а])", 0],  # parse place in Volyn
-                    ["place", "(область.{1,90}рад[и|а])", 0],  # parse place in Volyn
+                    ["place", "(область.{1,90}рад[и|а])", 0],  # parse place
                     ["price", "(Значення, гривень\n)(.*)(\n\d{3,}[\.]\d+)", 3],  # parse price
                     ['name_owner',
                      '(Прізвище.* фізичної)(.*)(\n[А-ЩЬЮЯЇІЄҐ]\w+[-]*\w+\s[А-ЩЬЮЯЇІЄҐ]\w+\s[А-ЩЬЮЯЇІЄҐ]\w+\n)', 3],
@@ -101,5 +103,5 @@ def main(directory, region):
         if filename.endswith('pdf'):
             pdfFiles.append(filename)
     pdfFiles.sort(key=str.lower)
-    parsePdf(OUTPUT_FILE, OUTPUT_FILE_2, pdfFiles, regexStrings, PATH)
+    parsePdf(OUTPUT_FILE, OUTPUT_FILE_2, pdfFiles, regexStrings, PATH, region)
     print('Done')

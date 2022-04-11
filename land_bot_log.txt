@@ -1,0 +1,23 @@
+2022-04-11 17:16:12,548 - DEBUG - Listening ...
+2022-04-11 17:16:12,549 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:16:12,549 - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2022-04-11 17:16:28,760 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 306
+2022-04-11 17:16:28,762 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:16:28,861 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:16:28,861 - DEBUG - Starting new HTTPS connection (2): api.telegram.org:443
+2022-04-11 17:16:28,907 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/sendMessage HTTP/1.1" 200 1077
+2022-04-11 17:16:28,907 - DEBUG - g
+2022-04-11 17:16:49,025 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:16:49,126 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:17:09,171 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:17:09,272 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:17:29,371 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:17:29,472 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:17:49,535 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:17:49,636 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:18:09,682 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:18:09,783 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:18:29,827 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:18:29,929 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
+2022-04-11 17:18:50,062 - DEBUG - https://api.telegram.org:443 "POST /bot2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY/getUpdates HTTP/1.1" 200 23
+2022-04-11 17:18:50,164 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=0, status=None)
