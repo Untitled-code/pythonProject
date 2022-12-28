@@ -1,5 +1,4 @@
-#!/home/investigator/scripts3/pythonProject/venv/bin/python
-import sys
+import os
 import time
 import telepot
 from telepot.loop import MessageLoop
@@ -71,8 +70,7 @@ def handle(msg):
         del directory #deleting varibale, in order to create a new one
 
 # replace XXXX.. with your token
-TOKEN = "2126168659:AAHxYbyj1uGkl05lrSK70mvm9Qgr2fM-MOY"
-
+TOKEN = os.environ.get('LANDBOT')
 bot = telepot.Bot(TOKEN)
 MessageLoop(bot, handle).run_as_thread()
 print('Listening ...')
